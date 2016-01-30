@@ -1,0 +1,74 @@
+g = 0.5
+V_clw_A = 3.96
+V_clw_B = 6.36
+V_clw_C = 3.2
+
+V_ccw_A = 3.96
+V_ccw_B = 6.36
+V_ccw_C = 3.2
+
+####################
+
+T_A_clw_B = 0.8
+R_A_clw_B = 0
+
+T_A_clw_C = 0.2
+R_A_clw_C = 8
+
+T_A_ccw_B = 0.4
+R_A_ccw_B = 0
+
+T_A_ccw_C = 0.6
+R_A_ccw_C = -10
+
+A_clw_B = T_A_clw_B * (R_A_clw_B + 0.5*(max(V_clw_B,  V_ccw_B)))
+A_clw_C = T_A_clw_C * (R_A_clw_C + 0.5*max(V_clw_C, V_ccw_C))
+
+A_ccw_B = T_A_ccw_B * (R_A_ccw_B + 0.5*V_ccw_B)
+A_ccw_C = T_A_ccw_C * (R_A_ccw_C + 0.5*V_ccw_C)
+
+print "A_clw=", A_clw_B*T_A_clw_B , A_clw_C*T_A_ccw_C , A_clw_B + A_clw_C
+print "A_ccw=", A_ccw_B + A_ccw_C
+
+T_B_clw_A = 0.4
+R_B_clw_A = -5
+
+T_B_clw_C = 0.6
+R_B_clw_C = 0
+
+T_B_ccw_A = 0.8
+R_B_ccw_A = 7
+
+T_B_ccw_C = 0.2
+R_B_ccw_C = 0
+
+B_clw_A = T_B_clw_A * (R_B_clw_A + 0.5*(V_clw_A ))
+B_clw_C = T_B_clw_C * (R_B_clw_C + 0.5*(V_clw_C ))
+
+B_ccw_A = T_B_ccw_A * (R_B_ccw_A + 0.5*(V_ccw_A ))
+B_ccw_C = T_B_ccw_C * (R_B_ccw_C + 0.5*(V_ccw_C ))
+
+print "B_clw=", B_clw_A + B_clw_C, B_clw_A , B_clw_C
+print "B_ccw=", B_ccw_A + B_ccw_C, B_ccw_A , B_ccw_C
+
+
+T_C_clw_A = 0.4
+R_C_clw_A = 0
+
+T_C_clw_B = 0.6
+R_C_clw_B = 2
+
+T_C_ccw_A = 0.2
+R_C_ccw_A = 0
+
+T_C_ccw_B = 0.8
+R_C_ccw_B = -5
+
+C_clw_A = T_C_clw_A * (R_C_clw_A + 0.5*V_clw_A)
+C_clw_B = T_C_clw_B * (R_C_clw_B + 0.5*V_clw_B)
+
+C_ccw_A = T_C_ccw_A * (R_C_ccw_A + 0.5*V_ccw_A)
+C_ccw_B = T_C_ccw_B * (R_C_ccw_B + 0.5*V_ccw_B)
+
+print "C_clw=", C_clw_A + C_clw_B
+print "C_ccw=", C_ccw_A + C_ccw_B

@@ -1,0 +1,8 @@
+x = 5.82076609134674072265625E-6
+
+from decimal import *
+import math
+print str(round(x,14))
+d = Decimal(str(round(x, 15)))
+print d
+
